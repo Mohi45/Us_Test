@@ -262,8 +262,10 @@ public class RandomAction {
     }
 
     public static WebDriver launchBrowser() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         return driver;
     }
