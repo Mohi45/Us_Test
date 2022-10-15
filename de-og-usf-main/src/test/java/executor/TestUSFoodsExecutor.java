@@ -53,7 +53,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     public static void setUp() throws IOException {
         // to get the browser on which the UI test has to be performed.
         System.out.println("***********StartTest*********");
-        //RandomAction.deleteFiles("C:\\Users\\Edge\\Downloads");
+        RandomAction.deleteFiles("UsFoodTesting/de-og-usf-main/",".pdf");
         driver = RandomAction.launchBrowser();//openBrowser("Chrome", chromePath);
         System.out.println("Invoked browser .. ");
     }
@@ -154,7 +154,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
                     detailedstatus = "Error : Please provide valid List name";
                 }
                 Thread.sleep(5000);
-                //SendMailSSL.sendMailActionPDF(purveyor.trim(), restaurant_name.trim());
+                SendMailSSL.sendMailActionPDF(purveyor.trim(), restaurant_name.trim());
             } else {
                 System.out.println(restaurant_name + " for purveryor " + purveyor + " is not Active !!");
                 exportstatus = "Not Active";
