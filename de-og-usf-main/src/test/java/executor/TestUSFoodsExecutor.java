@@ -99,7 +99,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     }
 
     ////////////////////////////////////////////////
-    @AfterClass
+    //@AfterClass
     public static void sendMail() {
         try {
             String emailMsg = "Daily " + project + " OG Export Status: " + RandomAction.getDate();
