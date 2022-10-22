@@ -27,7 +27,7 @@ public class Constant {
 
     public static final  String cc= "testprav59@gmail.com";//"ashutoshsaxena06@gmail.com";
 
-    public static final  String sendMailFrom= "onlineweekend.diningedge@gmail.com";
+    public static final  String sendMailFrom= "testprav59@gmail.com";// "onlineweekend.diningedge@gmail.com";
 
     public static final  String DownloadFolder= "C:\\Downloads\\";
 
