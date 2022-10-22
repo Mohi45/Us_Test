@@ -258,7 +258,11 @@ public class RandomAction {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments( "--window-size=1920,1200");
-        WebDriverManager.chromedriver().setup();
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("--no-sandbox"); // Bypass OS security model
+        WebDriverManager.chromedriver().driverVersion("106.0.5249.119").setup();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         return driver;
