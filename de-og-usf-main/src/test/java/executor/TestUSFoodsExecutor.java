@@ -61,7 +61,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     @AfterMethod
     public static void writeExcel() throws IOException {
         System.out.println("Running Excel write method!");
-        out = new FileOutputStream(reportFile);
+        out = new FileOutputStream(reportFile,false);
         exportworkbook.write(out);
         acno++;
         try {
