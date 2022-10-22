@@ -18,7 +18,7 @@ public class BaseExecutor {
     public static final String currDir = System.getProperty("user.dir");
     public static final String projectPath = currDir;
     public static final String inputFile = "src/main/java/Resources/ExportEngineInput.xlsx";
-    public static final String chromePath = userHome + "/Downloads/chromedriver_win32/chromedriver.exe";
+    //public static final String chromePath = userHome + "/Downloads/chromedriver_win32/chromedriver.exe";
     public static final String extentReport = currDir + File.separator + "extentsReport" + File.separator + "Report.html";
     private final static Logger logger = Logger.getLogger(BaseExecutor.class);
     public static int rowIndex;

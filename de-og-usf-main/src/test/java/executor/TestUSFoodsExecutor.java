@@ -20,7 +20,7 @@ import java.util.Date;
 public class TestUSFoodsExecutor extends BaseExecutor {
 
     private final static Logger logger = Logger.getLogger(TestUSFoodsExecutor.class);
-    public static String reportFile = "src/main/java/Resources/Downloads/"
+    public static String reportFile = "/var/jenkins_home/workspace/USFood/de-og-usf-main/src/main/Resources/Reports/"
             + new Date().toString().replace(":", "").replace(" ", "") + ".xlsx";
     private static final String project = "USF";
     PurveyorAction purveyorAction = new UsFoodsAction();
@@ -53,7 +53,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     public static void setUp() throws IOException {
         // to get the browser on which the UI test has to be performed.
         System.out.println("***********StartTest*********");
-        //RandomAction.deleteFiles("UsFoodTesting/de-og-usf-main/",".pdf");
+        RandomAction.deleteFiles("/var/jenkins_home/workspace/USFood/de-og-usf-main",".pdf");
         driver = RandomAction.launchBrowser();//openBrowser("Chrome", chromePath);
         System.out.println("Invoked browser .. ");
     }
