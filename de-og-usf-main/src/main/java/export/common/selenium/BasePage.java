@@ -16,9 +16,9 @@ import java.awt.datatransfer.Transferable;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -155,9 +155,10 @@ public abstract class BasePage {
         } else {
             waitTimeInSeconds = 5;
         }
-        return new FluentWait<WebDriver>(getDriver()).withTimeout(waitTimeInSeconds, TimeUnit.SECONDS)
-                .pollingEvery(1, TimeUnit.SECONDS).ignoring(NoSuchElementException.class)
-                .ignoring(StaleElementReferenceException.class).ignoring(WebDriverException.class);
+        return new  FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class);
     }
 
     public WebDriver getDriver() {

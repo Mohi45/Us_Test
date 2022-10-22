@@ -20,7 +20,7 @@ import java.util.Date;
 public class TestUSFoodsExecutor extends BaseExecutor {
 
     private final static Logger logger = Logger.getLogger(TestUSFoodsExecutor.class);
-    public static String reportFile = "src/main/java/Resources/Downloads"
+    public static String reportFile = "src/main/java/Resources/Downloads/"
             + new Date().toString().replace(":", "").replace(" ", "") + ".xlsx";
     private static final String project = "USF";
     PurveyorAction purveyorAction = new UsFoodsAction();

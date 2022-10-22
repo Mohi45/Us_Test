@@ -11,6 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class CommonUSFoods {
@@ -97,7 +98,7 @@ public class CommonUSFoods {
         // driver = RandomAction.openBrowser("Chrome",
         // "C:\\Users\\my\\Downloads\\chromedriver_win32_new\\chromedriver.exe");
         com = new CommonUSFoods();
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         try {
             com.login(username, password);
@@ -162,7 +163,7 @@ public class CommonUSFoods {
     }
 
     public void login(String username, String password) throws InterruptedException {
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         driver.get(url);
         while (retry < maxtry) {
@@ -222,7 +223,7 @@ public class CommonUSFoods {
     }
 
     public void downloadFile(String filename) {
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
         WebElement In_filename = wait.until(ExpectedConditions.visibilityOf(com.txt_FileName));
         In_filename.clear();

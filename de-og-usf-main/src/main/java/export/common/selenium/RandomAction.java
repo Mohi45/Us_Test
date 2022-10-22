@@ -95,21 +95,6 @@ public class RandomAction {
 
     }
 
-    public static WebDriver setDownloadFilePath() {
-        // TODO Auto-generated method stub
-        String downloadFilepath = setdownloadDir();
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("profile.default_content_settings.popups", 0);
-        chromePrefs.put("download.default_directory", downloadFilepath);
-        ChromeOptions options = new ChromeOptions();
-        options.setExperimentalOption("prefs", chromePrefs);
-        DesiredCapabilities cap = DesiredCapabilities.chrome();
-        cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-        cap.setCapability(ChromeOptions.CAPABILITY, options);
-        WebDriver driver = new ChromeDriver(cap);
-        return driver;
-    }
-
     public static File getLatestFilefromDirxlsx(String dirPath) {
 
         File getLatestFilefromDir = null;
@@ -271,7 +256,8 @@ public class RandomAction {
     }
     public static WebDriver launchBrowser() {
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200","--ignore-certificate-errors");
+        options.addArguments("--headless");
+        options.addArguments( "--window-size=1920,1200");
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
