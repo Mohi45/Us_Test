@@ -19,7 +19,7 @@ public class ParentPage extends BasePage {
     public ParentPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT), Duration.ofSeconds(POLLING));
+        this.wait = new WebDriverWait(driver, TIMEOUT, POLLING);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
     }
 

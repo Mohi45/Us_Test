@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Date;
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage {
     protected WebDriver driver;
@@ -156,8 +157,8 @@ public abstract class BasePage {
             waitTimeInSeconds = 5;
         }
         return new  FluentWait<WebDriver>(driver)
-                .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofSeconds(1))
+                .withTimeout(30, TimeUnit.SECONDS)
+                .pollingEvery(1, TimeUnit.SECONDS)
                 .ignoring(NoSuchElementException.class);
     }
 
