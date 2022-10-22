@@ -20,7 +20,7 @@ import java.util.Date;
 public class TestUSFoodsExecutor extends BaseExecutor {
 
     private final static Logger logger = Logger.getLogger(TestUSFoodsExecutor.class);
-    public static String reportFile = "/var/jenkins_home/workspace/USFood/de-og-usf-main/src/main/Resources/Reports/ExportSummary_USF"
+    public static String reportFile = "/var/jenkins_home/workspace/USFood/de-og-usf-main/src/main/Resources/ExportSummary_USF"
             + new Date().toString().replace(":", "").replace(" ", "") + ".xlsx";
     private static final String project = "USF";
     PurveyorAction purveyorAction = new UsFoodsAction();
@@ -61,7 +61,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     @AfterMethod
     public static void writeExcel() throws IOException {
         System.out.println("Running Excel write method!");
-        out = new FileOutputStream(reportFile,false);
+        out = new FileOutputStream(reportFile);
         exportworkbook.write(out);
         acno++;
         try {
