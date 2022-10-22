@@ -61,7 +61,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     @AfterMethod
     public static void writeExcel() throws IOException {
         System.out.println("Running Excel write method!");
-        out = new FileOutputStream(new File(reportFile));
+        out = new FileOutputStream(reportFile);
         exportworkbook.write(out);
         acno++;
         try {
@@ -154,7 +154,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
                     detailedstatus = "Error : Please provide valid List name";
                 }
                 Thread.sleep(5000);
-                SendMailSSL.sendMailActionPDF(purveyor.trim(), restaurant_name.trim());
+                //SendMailSSL.sendMailActionPDF(purveyor.trim(), restaurant_name.trim());
             } else {
                 System.out.println(restaurant_name + " for purveryor " + purveyor + " is not Active !!");
                 exportstatus = "Not Active";
