@@ -232,7 +232,7 @@ public class SendMailSSL {
 			// get connection
 			Session session = createConnection();
 			// String filepath = RandomAction.setdownloadDir();
-			File GFS_OG = RandomAction.getLatestFilefromDirPDF("UsFoodTesting/de-og-usf-main/");
+			File GFS_OG = RandomAction.getLatestFilefromDirPDF("/var/jenkins_home/workspace/USFood/de-og-usf-main/");
 			String filename = GFS_OG.getAbsolutePath();
 			System.out.println(filename);
 
