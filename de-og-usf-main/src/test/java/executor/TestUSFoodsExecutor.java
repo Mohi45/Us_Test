@@ -54,7 +54,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     public static void setUp() throws IOException {
         // to get the browser on which the UI test has to be performed.
         System.out.println("***********StartTest*********");
-        //RandomAction.deleteFiles("/var/jenkins_home/workspace/USFood/de-og-usf-main",".pdf");
+        RandomAction.deleteFiles("/var/jenkins_home/workspace/USFood/de-og-usf-main",".pdf");
         driver = RandomAction.launchBrowser();//openBrowser("Chrome", chromePath);
         System.out.println("Invoked browser .. ");
     }
@@ -101,7 +101,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     }
 
     ////////////////////////////////////////////////
-    //@AfterClass
+    @AfterClass
     public static void sendMail() {
         try {
             String emailMsg = "Daily " + project + " OG Export Status: " + RandomAction.getDate();
