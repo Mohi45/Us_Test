@@ -5,6 +5,7 @@ import export.actions.UsFoodsAction;
 import export.common.selenium.ExcelFunctions;
 import export.common.selenium.RandomAction;
 import export.common.selenium.SendMailSSL;
+import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.testng.Assert;
@@ -20,7 +21,7 @@ import java.util.Date;
 public class TestUSFoodsExecutor extends BaseExecutor {
 
     private final static Logger logger = Logger.getLogger(TestUSFoodsExecutor.class);
-    public static String reportFile = "/var/jenkins_home/workspace/USFood/de-og-usf-main/src/main/Resources/ExportSummary_USF"
+    public static String reportFile = System.getProperty("user.dir")+"/src/main/Resources/Reports/ExportSummary_USF"
             + new Date().toString().replace(":", "").replace(" ", "") + ".xlsx";
     private static final String project = "USF";
     PurveyorAction purveyorAction = new UsFoodsAction();
@@ -53,7 +54,7 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     public static void setUp() throws IOException {
         // to get the browser on which the UI test has to be performed.
         System.out.println("***********StartTest*********");
-        RandomAction.deleteFiles("/var/jenkins_home/workspace/USFood/de-og-usf-main",".pdf");
+        //RandomAction.deleteFiles("/var/jenkins_home/workspace/USFood/de-og-usf-main",".pdf");
         driver = RandomAction.launchBrowser();//openBrowser("Chrome", chromePath);
         System.out.println("Invoked browser .. ");
     }
@@ -61,7 +62,8 @@ public class TestUSFoodsExecutor extends BaseExecutor {
     @AfterMethod
     public static void writeExcel() throws IOException {
         System.out.println("Running Excel write method!");
-        out = new FileOutputStream(reportFile);
+        out =  FileUtils.openOutputStream(new File(reportFile));
+        //out = new FileOutputStream(reportFile);
         exportworkbook.write(out);
         acno++;
         try {
